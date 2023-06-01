@@ -26,28 +26,28 @@ def sumAll(resp, attr):
 def sumForked(resp, attr):
     sum = 0
     for item in resp:
-        if item['fork'] != True:
+        if not item['fork']:
             sum+=item[attr]
     return sum
 
 def sumNotForked(resp, attr):
     sum = 0
     for item in resp:
-        if item['fork'] == True:
+        if item['fork']:
             sum+=item[attr]
     return sum
 
 def countNotForked(resp):
     sum = 0
     for item in resp:
-        if item['fork'] == True:
+        if item['fork']:
             sum+=1
     return sum
 
 def countForked(resp):
     sum = 0
     for item in resp:
-        if item['fork'] != True:
+        if not item['fork']:
             sum+=1
     return sum
 
@@ -61,7 +61,7 @@ def setAdder(resp):
 def setForked(resp):
     thisSet = set()
     for item in resp:
-        if item['fork'] == True:
+        if item['fork']:
             stringer = str(item["language"])
             thisSet.add(stringer)
     return thisSet
@@ -69,7 +69,7 @@ def setForked(resp):
 def setNotForked(resp):
     thisSet = set()
     for item in resp:
-        if item['fork'] == False:
+        if not item['fork']:
             stringer = str(item["language"])
             thisSet.add(stringer)
     return thisSet
